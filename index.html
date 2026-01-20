@@ -48,7 +48,12 @@
       position:absolute;
       inset:0;
       height:3px;
-      background: linear-gradient(90deg, rgba(212,175,55,0.9), rgba(192,192,192,0.9), rgba(212,175,55,0.9));
+      background: linear-gradient(
+        90deg,
+        rgba(212,175,55,0.9),
+        rgba(192,192,192,0.9),
+        rgba(212,175,55,0.9)
+      );
       opacity:0.9;
     }
 
@@ -230,7 +235,7 @@
       z-index:1;
     }
 
-    /* ✅ Texto dorado COLABORADOR dentro del logo grande */
+    /* Texto dorado "COLABORADOR" dentro del logo grande */
     .hero-label{
       position:absolute;
       left:50%;
@@ -258,50 +263,6 @@
 
       z-index:3;
       pointer-events:none;
-    }
-
-    /* Overlay suave abajo */
-    .overlay{
-      position:absolute;
-      inset:0;
-      background: linear-gradient(180deg,
-        rgba(0,0,0,0.00) 60%,
-        rgba(0,0,0,0.75) 100%
-      );
-      display:flex;
-      align-items:flex-end;
-      padding:14px;
-      pointer-events:none;
-      z-index:2;
-    }
-
-    .overlay span{
-      font-size:13px;
-      color:var(--muted);
-      border:1px solid rgba(212,175,55,0.35);
-      padding:8px 10px;
-      border-radius:999px;
-      background: rgba(0,0,0,0.35);
-    }
-
-    .footer{
-      margin-top:14px;
-      display:flex;
-      gap:12px;
-      flex-wrap:wrap;
-      align-items:center;
-      justify-content:space-between;
-      color:var(--muted);
-      font-size:12px;
-    }
-
-    .links a{
-      color: var(--silver);
-      text-decoration:none;
-    }
-    .links a:hover{
-      text-decoration:underline;
-      color: var(--gold);
     }
 
     /* ✨ Brillo diagonal metálico */
@@ -332,6 +293,26 @@
       50%  { opacity:0.65; }
       90%  { opacity:0.0; }
       100% { transform: translateX(260%) rotate(20deg); opacity:0.0; }
+    }
+
+    .footer{
+      margin-top:14px;
+      display:flex;
+      gap:12px;
+      flex-wrap:wrap;
+      align-items:center;
+      justify-content:space-between;
+      color:var(--muted);
+      font-size:12px;
+    }
+
+    .links a{
+      color: var(--silver);
+      text-decoration:none;
+    }
+    .links a:hover{
+      text-decoration:underline;
+      color: var(--gold);
     }
   </style>
 </head>
@@ -379,10 +360,6 @@
           <img src="./assets/Logo.png" alt="Logo principal" />
           <div class="hero-label">COLABORADOR</div>
         </div>
-
-        <div class="overlay">
-          <span>📍 Canales oficiales</span>
-        </div>
       </div>
     </section>
 
@@ -401,4 +378,5 @@
   </script>
 </body>
 </html>
+
 
