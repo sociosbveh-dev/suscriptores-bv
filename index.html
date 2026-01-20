@@ -67,34 +67,41 @@
       gap:14px;
     }
 
-    /* Contenedor del logo + plaquita */
+    /* Contenedor del logo superior */
     .logo-stack{
       display:flex;
       flex-direction:column;
       align-items:center;
-      gap:6px;
+      gap:0;
       min-width:74px;
     }
 
-    /* Badge plateado detrás del logo */
+    /* ✅ Badge plateado detrás del logo (chico) */
     .logo-badge{
       width:64px;
       height:64px;
       padding:4px;
       border-radius:16px;
+
       background: linear-gradient(135deg,
         #f8f8f8 0%,
         #c0c0c0 35%,
         #ffffff 55%,
         #9fa3a7 100%
       );
+
       border:1px solid rgba(255,255,255,0.30);
       box-shadow:
         0 0 0 2px rgba(193,18,31,0.18),
         0 10px 22px rgba(0,0,0,0.55);
+
       display:flex;
       align-items:center;
       justify-content:center;
+
+      /* brillo */
+      position:relative;
+      overflow:hidden;
     }
 
     .logo-badge img{
@@ -103,30 +110,12 @@
       object-fit:contain;
       border-radius:14px;
       background:transparent;
-      border:1px solid rgba(212,175,55,0.55); /* borde dorado fino */
+      border:1px solid rgba(212,175,55,0.55);
+      position:relative;
+      z-index:1;
     }
 
-    /* Plaquita "COLABORADOR" */
-    .tag{
-      font-size:11px;
-      font-weight:800;
-      letter-spacing:1px;
-      text-transform:uppercase;
-      color:#111;
-      padding:6px 10px;
-      border-radius:999px;
-
-      background: linear-gradient(135deg,
-        rgba(255,255,255,1) 0%,
-        rgba(192,192,192,1) 40%,
-        rgba(255,255,255,1) 60%,
-        rgba(159,163,167,1) 100%
-      );
-
-      border:1px solid rgba(255,255,255,0.25);
-      box-shadow: 0 6px 14px rgba(0,0,0,0.45);
-    }
-
+    /* ✅ Texto principal arriba */
     .title{
       display:flex;
       flex-direction:column;
@@ -145,6 +134,7 @@
       font-size:14px;
     }
 
+    /* Layout principal */
     .hero{
       margin-top:16px;
       display:grid;
@@ -207,7 +197,7 @@
       box-shadow: 0 0 0 2px rgba(212,175,55,0.12);
     }
 
-    /* ✅ CONTENEDOR derecho */
+    /* Contenedor derecho */
     .right{
       border-radius:16px;
       overflow:hidden;
@@ -216,14 +206,13 @@
       position:relative;
       min-height:240px;
 
-      /* Para centrar el badge grande */
       display:flex;
       align-items:center;
       justify-content:center;
       padding:18px;
     }
 
-    /* ✅ BADGE PLATEADO GRANDE (logo central) */
+    /* ✅ Badge plateado GRANDE con brillo diagonal */
     .hero-badge{
       width:min(320px, 88%);
       aspect-ratio: 1 / 1;
@@ -245,6 +234,10 @@
       display:flex;
       align-items:center;
       justify-content:center;
+
+      position:relative;
+      overflow:hidden;
+      z-index:1; /* arriba del overlay */
     }
 
     .hero-badge img{
@@ -254,16 +247,23 @@
       border-radius:18px;
       border:1px solid rgba(212,175,55,0.55);
       background:transparent;
+      position:relative;
+      z-index:1;
     }
 
+    /* ✅ Overlay suave SOLO abajo (no tapa el brillo) */
     .overlay{
       position:absolute;
       inset:0;
-      background: linear-gradient(180deg, rgba(0,0,0,0.15), rgba(0,0,0,0.78));
+      background: linear-gradient(180deg,
+        rgba(0,0,0,0.00) 60%,
+        rgba(0,0,0,0.75) 100%
+      );
       display:flex;
       align-items:flex-end;
       padding:14px;
       pointer-events:none;
+      z-index:2;
     }
 
     .overlay span{
@@ -295,6 +295,43 @@
       text-decoration:underline;
       color: var(--gold);
     }
+
+    /* ==========================
+       ✨ BRILLO DIAGONAL METÁLICO
+       ========================== */
+
+    .logo-badge::after,
+    .hero-badge::after{
+      content:"";
+      position:absolute;
+      top:-60%;
+      left:-70%;
+      width:45%;
+      height:220%;
+
+      background: linear-gradient(120deg,
+        rgba(255,255,255,0) 0%,
+        rgba(255,255,255,0.18) 35%,
+        rgba(255,255,255,0.70) 50%,
+        rgba(255,255,255,0.18) 65%,
+        rgba(255,255,255,0) 100%
+      );
+
+      transform: rotate(20deg);
+      opacity:0.65;
+      filter: blur(0.2px);
+      mix-blend-mode: overlay;
+
+      animation: shine 3.6s ease-in-out infinite;
+    }
+
+    @keyframes shine{
+      0%   { transform: translateX(-180%) rotate(20deg); opacity:0.0; }
+      10%  { opacity:0.65; }
+      50%  { opacity:0.65; }
+      90%  { opacity:0.0; }
+      100% { transform: translateX(260%) rotate(20deg); opacity:0.0; }
+    }
   </style>
 </head>
 
@@ -304,11 +341,11 @@
     <div class="top">
       <div class="brand">
 
+        <!-- ✅ Logo superior SIN texto "COLABORADOR" -->
         <div class="logo-stack">
           <div class="logo-badge">
             <img src="./assets/Logo.png" alt="Logo Bomberos" />
           </div>
-          <div class="tag">COLABORADOR</div>
         </div>
 
         <div class="title">
@@ -337,8 +374,35 @@
 
           <a class="btn" href="mailto:cdbomberosvoluntarioselhoyo@gmail.com">
             ✉️ Contacto <small>Email</small>
+          </a>
+        </div>
+      </div>
 
+      <div class="right">
+        <!-- ✅ Logo central con insignia plateada + brillo diagonal -->
+        <div class="hero-badge">
+          <img src="./assets/Logo.png" alt="Logo principal" />
+        </div>
+
+        <div class="overlay">
+          <span>📍 Canales oficiales</span>
+        </div>
+      </div>
+    </section>
+
+    <div class="footer">
+      <div>© <span id="year"></span> Bomberos Voluntarios de El Hoyo</div>
+      <div class="links">
+        <a href="https://www.instagram.com/bomberoseh/" target="_blank" rel="noopener">Instagram</a> ·
+        <a href="mailto:cdbomberosvoluntarioselhoyo@gmail.com">Contacto</a>
+      </div>
+    </div>
+
+  </main>
+
+  <script>
     document.getElementById("year").textContent = new Date().getFullYear();
   </script>
 </body>
 </html>
+
