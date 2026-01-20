@@ -5,22 +5,28 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>¡Gracias por suscribirte!</title>
 
-  <!-- Redirección automática (opcional): cambia el link y el tiempo -->
-  <meta http-equiv="refresh" content="6;url=https://tulinkfinal.com" />
+  <!-- ✅ Redirección automática (opcional)
+       Cambiá el link de abajo por el destino final -->
+  <meta http-equiv="refresh" content="6;url=https://PONE-TU-LINK-ACA.com" />
 
   <style>
     :root{
-      --bg:#0b1220;
-      --card:#111a2e;
-      --text:#eaf1ff;
-      --muted:#b8c4dd;
-      --accent:#ff7a18;
-      --accent2:#3cc7ff;
+      /* Paleta Bomberos */
+      --bg:#07070a;           /* negro fondo */
+      --card:#0e0e12;         /* negro suave */
+      --text:#ffffff;         /* blanco */
+      --muted:#d6d6d6;        /* gris claro */
+      --red:#c1121f;          /* rojo bomberos */
+      --gold:#d4af37;         /* dorado */
+      --silver:#c0c0c0;       /* plateado */
     }
+
     body{
       margin:0;
       font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-      background: radial-gradient(1200px 600px at 30% 0%, #12224a 0%, var(--bg) 60%);
+      background:
+        radial-gradient(900px 500px at 20% 0%, rgba(193,18,31,0.35) 0%, rgba(7,7,10,1) 55%),
+        radial-gradient(700px 400px at 90% 10%, rgba(212,175,55,0.18) 0%, rgba(7,7,10,1) 55%);
       color:var(--text);
       display:flex;
       align-items:center;
@@ -28,56 +34,78 @@
       min-height:100vh;
       padding:24px;
     }
+
     .card{
       width:min(920px, 100%);
-      background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.03));
-      border:1px solid rgba(255,255,255,0.12);
+      background: linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02));
+      border:1px solid rgba(255,255,255,0.14);
       border-radius:18px;
       padding:22px;
-      box-shadow: 0 18px 60px rgba(0,0,0,0.45);
+      box-shadow: 0 18px 60px rgba(0,0,0,0.6);
       overflow:hidden;
+      position:relative;
     }
+
+    /* Línea superior "metal" */
+    .card::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      height:3px;
+      background: linear-gradient(90deg, rgba(212,175,55,0.9), rgba(192,192,192,0.9), rgba(212,175,55,0.9));
+      opacity:0.9;
+    }
+
     .top{
       display:flex;
       gap:18px;
       align-items:center;
       flex-wrap:wrap;
       justify-content:space-between;
+      margin-top:6px;
     }
+
     .brand{
       display:flex;
       gap:14px;
       align-items:center;
     }
+
     .brand img{
-      width:56px; height:56px;
+      width:56px;
+      height:56px;
       border-radius:14px;
       object-fit:cover;
-      border:1px solid rgba(255,255,255,0.15);
-      background:#0a1020;
+      border:1px solid rgba(212,175,55,0.55);
+      background:#0a0a0d;
+      box-shadow: 0 0 0 2px rgba(193,18,31,0.25);
     }
+
     .title{
       display:flex;
       flex-direction:column;
       gap:2px;
     }
+
     .title h1{
       font-size:20px;
       margin:0;
       letter-spacing:0.2px;
     }
+
     .title p{
       margin:0;
       color:var(--muted);
       font-size:14px;
     }
+
     .pill{
-      border:1px solid rgba(255,255,255,0.18);
+      border:1px solid rgba(192,192,192,0.35);
       padding:10px 12px;
       border-radius:999px;
       color:var(--muted);
       font-size:13px;
-      background: rgba(0,0,0,0.15);
+      background: rgba(0,0,0,0.25);
     }
 
     .hero{
@@ -92,26 +120,31 @@
     }
 
     .left{
-      background: rgba(0,0,0,0.18);
+      background: rgba(0,0,0,0.22);
       border:1px solid rgba(255,255,255,0.10);
       border-radius:16px;
       padding:18px;
     }
+
     .left h2{
       margin:0 0 8px 0;
       font-size:22px;
+      color:var(--text);
     }
+
     .left p{
       margin:0 0 14px 0;
       color:var(--muted);
       line-height:1.45;
     }
+
     .ctaRow{
       display:flex;
       flex-wrap:wrap;
       gap:10px;
       margin-top:10px;
     }
+
     .btn{
       display:inline-flex;
       align-items:center;
@@ -119,47 +152,60 @@
       text-decoration:none;
       padding:12px 14px;
       border-radius:14px;
-      border:1px solid rgba(255,255,255,0.14);
+      border:1px solid rgba(255,255,255,0.16);
       color:var(--text);
-      background: rgba(255,255,255,0.06);
-      transition: transform .12s ease, background .12s ease;
+      background: rgba(255,255,255,0.05);
+      transition: transform .12s ease, background .12s ease, border-color .12s ease;
     }
-    .btn:hover{ transform: translateY(-1px); background: rgba(255,255,255,0.10); }
+    .btn:hover{
+      transform: translateY(-1px);
+      background: rgba(255,255,255,0.08);
+      border-color: rgba(192,192,192,0.50);
+    }
+
     .btn.primary{
-      border-color: rgba(255,122,24,0.55);
-      background: linear-gradient(90deg, rgba(255,122,24,0.35), rgba(60,199,255,0.18));
+      border-color: rgba(212,175,55,0.75);
+      background: linear-gradient(90deg, rgba(193,18,31,0.55), rgba(193,18,31,0.25));
+      box-shadow: 0 0 0 2px rgba(212,175,55,0.12);
     }
-    .btn small{ color:var(--muted); }
+
+    .btn small{
+      color:var(--muted);
+    }
 
     .right{
       border-radius:16px;
       overflow:hidden;
       border:1px solid rgba(255,255,255,0.10);
-      background:#091027;
+      background:#09090c;
       position:relative;
       min-height:240px;
     }
+
     .right img{
       width:100%;
       height:100%;
       object-fit:cover;
-      opacity:0.92;
+      opacity:0.95;
+      filter: contrast(1.05) saturate(1.02);
     }
+
     .overlay{
       position:absolute;
       inset:0;
-      background: linear-gradient(180deg, rgba(0,0,0,0.25), rgba(0,0,0,0.55));
+      background: linear-gradient(180deg, rgba(0,0,0,0.20), rgba(0,0,0,0.75));
       display:flex;
       align-items:flex-end;
       padding:14px;
     }
+
     .overlay span{
       font-size:13px;
       color:var(--muted);
-      border:1px solid rgba(255,255,255,0.14);
+      border:1px solid rgba(212,175,55,0.35);
       padding:8px 10px;
       border-radius:999px;
-      background: rgba(0,0,0,0.25);
+      background: rgba(0,0,0,0.35);
     }
 
     .footer{
@@ -172,8 +218,15 @@
       color:var(--muted);
       font-size:12px;
     }
-    .links a{ color:var(--accent2); text-decoration:none; }
-    .links a:hover{ text-decoration:underline; }
+
+    .links a{
+      color: var(--silver);
+      text-decoration:none;
+    }
+    .links a:hover{
+      text-decoration:underline;
+      color: var(--gold);
+    }
   </style>
 </head>
 
@@ -181,8 +234,9 @@
   <main class="card">
     <div class="top">
       <div class="brand">
-        <!-- Cambiá el logo -->
-        <img src="assets/logo.png" alt="Logo" />
+        <!-- ✅ Tu archivo real en assets -->
+        <img src="assets/Logo%20en%20alta%203x3.jpg" alt="Logo" />
+
         <div class="title">
           <h1>¡Suscripción confirmada! ✅</h1>
           <p>Gracias por sumarte. En segundos te redirigimos.</p>
@@ -196,50 +250,50 @@
 
     <section class="hero">
       <div class="left">
-        <h2>Bienvenido/a 🙌</h2>
+        <h2>Bomberos Voluntarios 👨‍🚒🔥</h2>
         <p>
-          Acá podés encontrar nuestras redes y el acceso directo al contenido.
+          Acá podés encontrar nuestras redes oficiales y el acceso directo al contenido.
           Si la redirección no funciona, tocá el botón de abajo.
         </p>
 
         <div class="ctaRow">
-          <!-- Cambiá este link al destino final -->
-          <a class="btn primary" href="https://tulinkfinal.com" target="_blank" rel="noopener">
+          <!-- ✅ Link principal (poné el destino final) -->
+          <a class="btn primary" href="https://PONE-TU-LINK-ACA.com" target="_blank" rel="noopener">
             🔗 Continuar ahora
           </a>
 
-          <!-- Redes: cambiá los links -->
+          <!-- Redes: ya las dejé listas -->
           <a class="btn" href="https://www.instagram.com/bomberoseh/" target="_blank" rel="noopener">
-            📸 Instagram <small>@tuusuario</small>
+            📸 Instagram <small>@bomberoseh</small>
           </a>
+
           <a class="btn" href="https://www.facebook.com/bomberoseh" target="_blank" rel="noopener">
-            📘 Facebook <small>/tupagina</small>
+            📘 Facebook <small>/bomberoseh</small>
           </a>
-         
         </div>
       </div>
 
       <div class="right">
-        <!-- Cambiá la imagen principal -->
-        <img src="assets/hero.jpg" alt="Imagen principal" />
+        <!-- ✅ Dejo el mismo logo como “hero” para que no tengas que subir otra imagen -->
+        <img src="assets/Logo%20en%20alta%203x3.jpg" alt="Imagen principal" />
         <div class="overlay">
-          <span>📍 Info + enlaces oficiales</span>
+          <span>📍 Canales oficiales</span>
         </div>
       </div>
     </section>
 
     <div class="footer">
-      <div>© <span id="year"></span> Tu proyecto / Asociación</div>
+      <div>© <span id="year"></span> Bomberos Voluntarios</div>
       <div class="links">
-        <a href="https://tusitio.com" target="_blank" rel="noopener">Sitio web</a> ·
+        <a href="https://www.instagram.com/bomberoseh/" target="_blank" rel="noopener">Instagram</a> ·
         <a href="mailto:tuemail@dominio.com">Contacto</a>
       </div>
     </div>
   </main>
 
   <script>
-    // Año automático
     document.getElementById("year").textContent = new Date().getFullYear();
   </script>
 </body>
 </html>
+
