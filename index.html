@@ -5,20 +5,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>¡Gracias por suscribirte!</title>
 
-  <!-- ✅ Redirección automática (opcional)
-       Cambiá el link de abajo por el destino final -->
-  <meta http-equiv="refresh" content="6;url=https://sociosbveh-dev.github.io/suscriptores-bv/" />
-
   <style>
     :root{
-      /* Paleta Bomberos */
-      --bg:#07070a;           /* negro fondo */
-      --card:#0e0e12;         /* negro suave */
-      --text:#ffffff;         /* blanco */
-      --muted:#d6d6d6;        /* gris claro */
-      --red:#c1121f;          /* rojo bomberos */
-      --gold:#d4af37;         /* dorado */
-      --silver:#c0c0c0;       /* plateado */
+      --bg:#07070a;
+      --card:#0e0e12;
+      --text:#ffffff;
+      --muted:#d6d6d6;
+      --red:#c1121f;
+      --gold:#d4af37;
+      --silver:#c0c0c0;
     }
 
     body{
@@ -46,7 +41,6 @@
       position:relative;
     }
 
-    /* Línea superior "metal" */
     .card::before{
       content:"";
       position:absolute;
@@ -99,15 +93,6 @@
       font-size:14px;
     }
 
-    .pill{
-      border:1px solid rgba(192,192,192,0.35);
-      padding:10px 12px;
-      border-radius:999px;
-      color:var(--muted);
-      font-size:13px;
-      background: rgba(0,0,0,0.25);
-    }
-
     .hero{
       margin-top:16px;
       display:grid;
@@ -115,6 +100,7 @@
       gap:18px;
       align-items:stretch;
     }
+
     @media (max-width: 840px){
       .hero{ grid-template-columns:1fr; }
     }
@@ -129,7 +115,6 @@
     .left h2{
       margin:0 0 8px 0;
       font-size:22px;
-      color:var(--text);
     }
 
     .left p{
@@ -157,6 +142,7 @@
       background: rgba(255,255,255,0.05);
       transition: transform .12s ease, background .12s ease, border-color .12s ease;
     }
+
     .btn:hover{
       transform: translateY(-1px);
       background: rgba(255,255,255,0.08);
@@ -167,10 +153,6 @@
       border-color: rgba(212,175,55,0.75);
       background: linear-gradient(90deg, rgba(193,18,31,0.55), rgba(193,18,31,0.25));
       box-shadow: 0 0 0 2px rgba(212,175,55,0.12);
-    }
-
-    .btn small{
-      color:var(--muted);
     }
 
     .right{
@@ -187,7 +169,6 @@
       height:100%;
       object-fit:cover;
       opacity:0.95;
-      filter: contrast(1.05) saturate(1.02);
     }
 
     .overlay{
@@ -234,17 +215,11 @@
   <main class="card">
     <div class="top">
       <div class="brand">
-        <!-- ✅ Tu archivo real en assets -->
-        <img src="assets/Logo.jpg" alt="Logo" />
-
+        <img src="./assets/Logo.jpg" alt="Logo" />
         <div class="title">
           <h1>¡Suscripción confirmada! ✅</h1>
-          <p>Gracias por sumarte. En segundos te redirigimos.</p>
+          <p>Gracias por sumarte. Acá tenés nuestros enlaces oficiales.</p>
         </div>
-      </div>
-
-      <div class="pill">
-        ⏳ Redirección automática en ~6s
       </div>
     </div>
 
@@ -252,30 +227,26 @@
       <div class="left">
         <h2>Bomberos Voluntarios 👨‍🚒🔥</h2>
         <p>
-          Acá podés encontrar nuestras redes oficiales y el acceso directo al contenido.
-          Si la redirección no funciona, tocá el botón de abajo.
+          Seguinos en redes oficiales y mantenete al día con novedades, colectas y capacitaciones.
         </p>
 
         <div class="ctaRow">
-          <!-- ✅ Link principal (poné el destino final) -->
-          <a class="btn primary" href="https://sociosbveh-dev.github.io/suscriptores-bv/" target="_blank" rel="noopener">
-            🔗 Continuar ahora
-          </a>
-
-          <!-- Redes: ya las dejé listas -->
-          <a class="btn" href="https://www.instagram.com/bomberoseh/" target="_blank" rel="noopener">
-            📸 Instagram <small>@bomberoseh</small>
+          <a class="btn primary" href="https://www.instagram.com/bomberoseh/" target="_blank" rel="noopener">
+            🔗 Ir a Instagram
           </a>
 
           <a class="btn" href="https://www.facebook.com/bomberoseh" target="_blank" rel="noopener">
             📘 Facebook <small>/bomberoseh</small>
           </a>
+
+          <a class="btn" href="mailto:cdbomberosvoluntarioselhoyo@gmail.com">
+            ✉️ Contacto <small>Email</small>
+          </a>
         </div>
       </div>
 
       <div class="right">
-        <!-- ✅ Dejo el mismo logo como “hero” para que no tengas que subir otra imagen -->
-        <img src="assets/Logo.jpg" alt="Imagen principal" />
+        <img src="./assets/Logo.jpg" alt="Imagen principal" />
         <div class="overlay">
           <span>📍 Canales oficiales</span>
         </div>
@@ -296,4 +267,5 @@
   </script>
 </body>
 </html>
+
 
