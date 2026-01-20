@@ -207,6 +207,7 @@
       box-shadow: 0 0 0 2px rgba(212,175,55,0.12);
     }
 
+    /* ✅ CONTENEDOR derecho */
     .right{
       border-radius:16px;
       overflow:hidden;
@@ -214,14 +215,45 @@
       background:#09090c;
       position:relative;
       min-height:240px;
+
+      /* Para centrar el badge grande */
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:18px;
     }
 
-    .right img{
+    /* ✅ BADGE PLATEADO GRANDE (logo central) */
+    .hero-badge{
+      width:min(320px, 88%);
+      aspect-ratio: 1 / 1;
+      padding:14px;
+      border-radius:26px;
+
+      background: linear-gradient(135deg,
+        #f8f8f8 0%,
+        #c0c0c0 35%,
+        #ffffff 55%,
+        #9fa3a7 100%
+      );
+
+      border:1px solid rgba(255,255,255,0.28);
+      box-shadow:
+        0 0 0 2px rgba(193,18,31,0.16),
+        0 18px 38px rgba(0,0,0,0.60);
+
+      display:flex;
+      align-items:center;
+      justify-content:center;
+    }
+
+    .hero-badge img{
       width:100%;
       height:100%;
-      object-fit:cover;
-      opacity:0.96;
-      filter: contrast(1.05) saturate(1.02);
+      object-fit:contain;
+      border-radius:18px;
+      border:1px solid rgba(212,175,55,0.55);
+      background:transparent;
     }
 
     .overlay{
@@ -231,6 +263,7 @@
       display:flex;
       align-items:flex-end;
       padding:14px;
+      pointer-events:none;
     }
 
     .overlay span{
@@ -304,29 +337,7 @@
 
           <a class="btn" href="mailto:cdbomberosvoluntarioselhoyo@gmail.com">
             ✉️ Contacto <small>Email</small>
-          </a>
-        </div>
-      </div>
 
-      <div class="right">
-        <img src="./assets/Logo.png" alt="Imagen principal" />
-        <div class="overlay">
-          <span>📍 Canales oficiales</span>
-        </div>
-      </div>
-    </section>
-
-    <div class="footer">
-      <div>© <span id="year"></span> Bomberos Voluntarios El Hoyo</div>
-      <div class="links">
-        <a href="https://www.instagram.com/bomberoseh/" target="_blank" rel="noopener">Instagram</a> ·
-        <a href="mailto:cdbomberosvoluntarioselhoyo@gmail.com">Contacto cdbomberosvoluntarioselhoyo@gmail.com</a>
-      </div>
-    </div>
-
-  </main>
-
-  <script>
     document.getElementById("year").textContent = new Date().getFullYear();
   </script>
 </body>
